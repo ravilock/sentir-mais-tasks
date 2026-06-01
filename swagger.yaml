@@ -1,0 +1,182 @@
+openapi: 3.0.3
+info:
+  title: Sentir Mais Backend API
+  version: 0.1.0
+  description: >-
+    Inferred OpenAPI document for the backend consumed by the current frontend.
+    The documented operations are derived from the chat HTTP contract used in
+    `src/http/chat/chat.interface.ts`, `src/http/chat/chat.mock.ts`,
+    `src/views/HomeView.vue`, and `src/views/ChatView.vue`.
+servers:
+  - url: /
+tags:
+  - name: Chats
+    description: Chat session lifecycle and message exchange.
+paths:
+  /chats:
+    post:
+      tags:
+        - Chats
+      summary: Create a chat session
+      description: Creates a new chat using the first user message and returns the chat id plus the first assistant response.
+      operationId: createChat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChatRequest'
+            examples:
+              default:
+                value:
+                  initialMessage: Como está se sentindo hoje?
+      responses:
+        '201':
+          description: Chat created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateChatResponse'
+              examples:
+                default:
+                  value:
+                    chatId: "1"
+                    response:
+                      id: "3"
+                      content: Olá, como eu posso te ajudar?
+                      sender: 1
+        '400':
+          description: The provided message is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                empty-message:
+                  value:
+                    message: Message is empty
+  /chats/{chatId}/messages:
+    post:
+      tags:
+        - Chats
+      summary: Send a message to an existing chat
+      description: Appends a user message to an existing chat and returns the assistant reply.
+      operationId: sendMessage
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          description: Chat session identifier returned when the chat was created.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessageRequest'
+            examples:
+              default:
+                value:
+                  message: Preciso conversar sobre como estou me sentindo.
+      responses:
+        '200':
+          description: Assistant response generated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+              examples:
+                default:
+                  value:
+                    id: "5"
+                    content: Olá, como eu posso te ajudar?
+                    sender: 1
+        '400':
+          description: The provided message is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                invalid-message:
+                  value:
+                    message: Message is empty
+        '404':
+          description: The chat session does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                chat-not-found:
+                  value:
+                    message: Chat not found!
+components:
+  schemas:
+    CreateChatRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - initialMessage
+      properties:
+        initialMessage:
+          type: string
+          minLength: 1
+          description: First user message used to open the chat.
+    SendMessageRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          minLength: 1
+          description: User message to append to the chat.
+    CreateChatResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - chatId
+        - response
+      properties:
+        chatId:
+          type: string
+          description: Unique chat identifier.
+        response:
+          $ref: '#/components/schemas/Message'
+    Message:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - content
+        - sender
+      properties:
+        id:
+          type: string
+          description: Unique message identifier.
+        content:
+          type: string
+          description: Markdown-capable message body.
+        sender:
+          $ref: '#/components/schemas/Sender'
+    Sender:
+      type: integer
+      description: Numeric sender enum used by the frontend chat model.
+      enum:
+        - 0
+        - 1
+      x-enum-varnames:
+        - USER
+        - ASSISTANT
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Human-readable error description.
