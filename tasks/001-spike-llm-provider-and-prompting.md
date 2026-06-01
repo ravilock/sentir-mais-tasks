@@ -1,7 +1,7 @@
 # Spike: LLM Provider And Prompting
 
 Type: Spike
-Status: In Progress
+Status: Done
 
 ## Goal
 
@@ -35,10 +35,7 @@ Define the first production LLM integration for `sentir-mais-backend`, including
 ## Current Status Notes
 
 - OpenRouter MVP/provider research is complete and documented in `task-control/openrouter-mvp-research.md`.
-- Remaining work:
-  - Sentir Mais-specific supportive prompt draft
-  - extraction prompt draft
-  - extraction JSON schema decision
+- Sentir Mais-specific prompt and extraction decisions are documented in `task-control/llm-prompting-spec.md`.
 
 ## Acceptance Criteria
 
