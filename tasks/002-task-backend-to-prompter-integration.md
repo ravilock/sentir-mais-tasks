@@ -1,7 +1,7 @@
 # Task: Backend To Prompter Integration
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
@@ -35,6 +35,15 @@ Integrate `sentir-mais-backend` with `sentir-mais-prompter` so the backend uses 
 - composition root wiring in the backend
 - service-level error handling for prompter failures
 - unit tests for client behavior and orchestration
+
+## Current Status Notes
+
+- Implemented in `sentir-mais-backend`
+- Added prompter client and supportive message mapping
+- Added backend config for `PROMPTER_BASE_URL`, `PROMPTER_API_KEY`, and `PROMPTER_TIMEOUT_SECONDS`
+- Wired the composition root to use the prompter when configured and fall back to the local stub otherwise
+- Added local compose and Makefile support for the prompter service
+- Added tests and verified with `make test`
 
 ## Acceptance Criteria
 
