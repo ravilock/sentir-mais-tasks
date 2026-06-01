@@ -6,6 +6,8 @@ Date: 2026-06-01
 
 OpenRouter is a good fit for the Sentir Mais MVP as the backing LLM provider behind `sentir-mais-prompter`.
 
+<https://openrouter.ai/settings/credits>
+
 It matches the current backlog assumptions, gives us a single OpenAI-compatible API surface, and keeps provider-specific logic out of `sentir-mais-backend`. For MVP, the main benefit is flexibility and speed of integration.
 
 The main caveat is privacy. Since Sentir Mais handles mental-health-adjacent text, we should not rely on default routing behavior. Provider selection and privacy-related routing controls should be explicit.
@@ -130,12 +132,12 @@ Good first model candidates mentioned in the research:
 
 ## References
 
-- Authentication: https://openrouter.ai/docs/api/reference/authentication
-- Chat completions: https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request
-- API overview: https://openrouter.ai/docs/api/reference/overview
-- Provider routing: https://openrouter.ai/docs/guides/routing/provider-selection
-- Structured outputs: https://openrouter.ai/docs/guides/features/structured-outputs
-- Pricing: https://openrouter.ai/pricing
-- Zero Data Retention: https://openrouter.ai/docs/guides/features/zdr
-- Provider logging/privacy: https://openrouter.ai/docs/guides/privacy/provider-logging
-- Generation metadata: https://openrouter.ai/docs/api/api-reference/generations/get-generation
+- Authentication: <https://openrouter.ai/docs/api/reference/authentication>
+- Chat completions: <https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request>
+- API overview: <https://openrouter.ai/docs/api/reference/overview>
+- Provider routing: <https://openrouter.ai/docs/guides/routing/provider-selection>
+- Structured outputs: <https://openrouter.ai/docs/guides/features/structured-outputs>
+- Pricing: <https://openrouter.ai/pricing>
+- Zero Data Retention: <https://openrouter.ai/docs/guides/features/zdr>
+- Provider logging/privacy: <https://openrouter.ai/docs/guides/privacy/provider-logging>
+- Generation metadata: <https://openrouter.ai/docs/api/api-reference/generations/get-generation>
