@@ -1,7 +1,7 @@
 # Task: Context Sufficiency Handling And Persistence
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
@@ -31,6 +31,16 @@ Implement backend-side handling of context sufficiency so the extraction result 
 - Domain and persistence support for context sufficiency state
 - Tests covering enough-context and not-enough-context orchestration paths
 - Clear orchestration rule for when the backend triggers the next stage
+
+## Current Status Notes
+
+- Implemented in `sentir-mais-backend`:
+  - domain fields for `enough_context` and `context_gaps`
+  - persistence support on `message_analyses`
+  - backend decision function for continue-vs-next-stage behavior
+  - unit tests for unknown, insufficient, and sufficient context states
+  - live analysis flow now uses extracted sufficiency state to decide whether to proceed to classification
+  - insufficient context now persists extraction state without advancing to the next stage
 
 ## Acceptance Criteria
 
