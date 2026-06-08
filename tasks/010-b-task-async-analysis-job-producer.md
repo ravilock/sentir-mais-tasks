@@ -1,7 +1,7 @@
 # Task: Async Analysis Job Producer
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
