@@ -1,7 +1,7 @@
 # Task: Structured Event Extraction
 
 Type: Task
-Status: In Progress
+Status: Done
 
 ## Goal
 
