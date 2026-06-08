@@ -1,7 +1,7 @@
 # Task: Classifier From Extracted Context
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
