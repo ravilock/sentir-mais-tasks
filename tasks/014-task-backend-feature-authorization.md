@@ -1,7 +1,7 @@
 # Task: Backend Feature Authorization
 
 Type: Task
-Status: Not Started
+Status: Cancelled
 
 ## Goal
 

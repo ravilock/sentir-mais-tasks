@@ -1,7 +1,7 @@
 # Task: Optional Host GPU Runtime Setup
 
 Type: Task
-Status: Not Started
+Status: Cancelled
 Optional: Yes
 
 ## Goal
