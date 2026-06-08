@@ -1,7 +1,7 @@
 # Task: Per-Chat Ordering And Idempotency
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 

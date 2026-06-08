@@ -1,7 +1,7 @@
 # Task: Worker Retries, Fallback, And Dead Letter
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
