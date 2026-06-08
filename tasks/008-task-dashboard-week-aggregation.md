@@ -1,7 +1,7 @@
 # Task: Dashboard Week Aggregation
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
