@@ -1,7 +1,7 @@
 # Task: Dashboard Timeline Endpoint
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
