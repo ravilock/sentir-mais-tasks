@@ -1,7 +1,7 @@
 # Task: Compose, Config, And Runtime Wiring
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 

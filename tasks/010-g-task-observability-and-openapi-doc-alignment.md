@@ -1,7 +1,7 @@
 # Task: Observability And OpenAPI Doc Alignment
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
