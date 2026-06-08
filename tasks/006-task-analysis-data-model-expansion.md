@@ -1,7 +1,7 @@
 # Task: Analysis Data Model Expansion
 
 Type: Task
-Status: Not Started
+Status: Done
 
 ## Goal
 
